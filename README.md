@@ -32,8 +32,13 @@ This document describes how to validate the Qualcomm NPU-enabled ONNX Runtime co
 
 ## 3. Run Container
 Clone the project:
+- On the PC
 ```
 git clone https://github.com/Advantech-EdgeSync-Containers/onnxruntime-on-Qualcomm-Hexagon-QCS6490.git
+scp -r ./onnxruntime-on-Qualcomm-Hexagon-QCS6490-main\ <username>@<aom2721-ip>:/home/<username>/
+```
+- On AOM-2721
+```
 chmod +x -R onnxruntime-on-Qualcomm-Hexagon-QCS6490-main
 cd onnxruntime-on-Qualcomm-Hexagon-QCS6490-main
 ```
