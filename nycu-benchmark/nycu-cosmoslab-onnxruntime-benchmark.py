@@ -114,16 +114,3 @@ if __name__ == "__main__":
         print(f"\n Result: QNN is {speedup:.2f}x faster than CPU (Average)")
     else:
         print("\n[Result] QNN benchmarking skipped.")
-
-    # --- Verification (using last QNN output) ---
-    if qnn_session:
-        logits = outputs[0][0]
-        probs = logits.astype(np.float32)
-        probs /= np.sum(probs) # Simple normalization
-        
-        top_k_idx = probs.argsort()[-5:][::-1]
-        labels = load_labels(args.label_file)
-
-        print("\n===== Top-5 Prediction (QNN) =====")
-        for idx in top_k_idx:
-            print(f"{probs[idx]:.6f}: {labels[idx]}")
