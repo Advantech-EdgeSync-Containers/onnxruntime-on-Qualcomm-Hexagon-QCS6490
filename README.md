@@ -127,7 +127,7 @@ The container uses a bind mount configuration:
 volumes:
   - ./:/workspace/
 ```
-The host project directory (e.g., onnxruntime-on-qualcomm-hexagon-qcs6490/) is directly synchronized with /workspace inside the container.
+The host project directory (e.g., onnxruntime-on-Qualcomm-Hexagon-QCS6490-main) is directly synchronized with /workspace inside the container.
 
 You can create or modify Python files directly in the host project folder, and they will be immediately available inside the container without rebuilding the image.
 
