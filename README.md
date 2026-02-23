@@ -1,1 +1,1 @@
-# onnxruntime-on-Qualcomm-Hexagon-QCS6490
+# ONNX Runtime on Qualcomm Hexagon QCS6490
