@@ -31,6 +31,10 @@ This document describes how to validate the Qualcomm NPU-enabled ONNX Runtime co
 **Note**: The custom build of `onnxruntime-qnn` currently only works within this container environment.
 
 ## 3. Run Container
+Clone the project:
+```
+git clone https://github.com/Advantech-EdgeSync-Containers/onnxruntime-on-Qualcomm-Hexagon-QCS6490.git
+```
 
 Start container:
 ```
@@ -58,8 +62,11 @@ Run the benchmark script:
 cd nycu-benchmark
 python nycu-cosmoslab-onnxruntime-benchmark.py
 ```
+
 Benchmark Result (100 Iterations)
+
 Model: [EfficientNet-B0](https://aihub.qualcomm.com/models/efficientnet_b0)
+
 Quantiaztion: w8a16
 
 **Model is download from Qualcomm AI-Hub
@@ -90,8 +97,21 @@ read_total_bytes=11130880
 Completed stage: Finalizing Graph Sequence (9903 us)
 Starting stage: Completion
 Completed stage: Completion (551 us)
+
+========================================
+ PERFORMANCE COMPARISON (100 Iterations)
+========================================
+[CPU Only] Running 100 iterations...
+[CPU Only] Total Time: 13687.09 ms
+[CPU Only] Average Latency: 136.8709 ms
+[QNN (NPU)] Running 100 iterations...
+[QNN (NPU)] Total Time: 537.07 ms
+[QNN (NPU)] Average Latency: 5.3707 ms
+
+ Result: QNN is 25.48x faster than CPU (Average)
+
 ```
-The result confirms that inference is successfully offloaded to the Hexagon 770 NPU through the QNN Execution Provider, achieving approximately 25× acceleration compared to CPU execution.
+The result confirms that inference is successfully offloaded to the Hexagon 770  through the QNN Execution Provider, achieving approximately 25× acceleration compared to CPU execution.
 
 ## 6. Development Workflow
 
@@ -100,7 +120,7 @@ The container uses a bind mount configuration:
 volumes:
   - ./:/workspace/
 ```
-The host project directory (e.g., qualcomm-qcs6490-onnxruntime-container/) is directly synchronized with /workspace inside the container.
+The host project directory (e.g., onnxruntime-on-qualcomm-hexagon-qcs6490/) is directly synchronized with /workspace inside the container.
 
 You can create or modify Python files directly in the host project folder, and they will be immediately available inside the container without rebuilding the image.
 
