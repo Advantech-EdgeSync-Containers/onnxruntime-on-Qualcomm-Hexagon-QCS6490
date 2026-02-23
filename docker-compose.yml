@@ -1,0 +1,37 @@
+services:
+  onnxruntime-on-qualcomm-hexagon-qcs6490:
+    
+    image: harbor.edgesync.cloud/nycu-cosmos-lab/onnxruntime-on-qualcomm-hexagon-qcs6490:v1
+    container_name: onnxruntime-on-qualcomm-hexagon-qcs6490
+    hostname: onnxruntime-on-qualcomm-hexagon-qcs6490
+    privileged: false
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+    devices:
+      - /dev/dri/card0
+      - /dev/dri/renderD128
+      - /dev/kgsl-3d0
+      - /dev/dma_heap/system
+      - /dev/fastrpc-cdsp
+      - /dev/fastrpc-cdsp-secure
+      - /dev/fastrpc-adsp-secure
+    volumes:
+      # --- Adreno GPU / OpenCL ---
+      - /usr/lib/libCB.so:/usr/lib/libCB.so
+      - /usr/lib/libOpenCL.so:/usr/lib/libOpenCL.so
+      - /usr/lib/libOpenCL_adreno.so:/usr/lib/libOpenCL_adreno.so
+      - /usr/lib/libadreno_utils.so:/usr/lib/libadreno_utils.so
+      - /usr/lib/libgsl.so:/usr/lib/libgsl.so
+      - /usr/lib/libllvm-qcom.so:/usr/lib/libllvm-qcom.so
+      # --- Hexagon NPU / RPC ---
+      - /usr/lib/libadsprpc.so:/usr/lib/libadsprpc.so
+      - /usr/lib/libcdsprpc.so:/usr/lib/libcdsprpc.so
+      - /usr/lib/dsp/:/usr/lib/dsp/
+      # --- Qualcomm DMA Buffer ---
+      - /usr/lib/libdmabufheap.so.0:/usr/lib/libdmabufheap.so.0
+      - /usr/lib/libvmmem.so.0:/usr/lib/libvmmem.so.0
+      - /usr/lib/libpropertyvault.so.0:/usr/lib/libpropertyvault.so.0
+      # --- User Data ---
+      - ./:/workspace/
