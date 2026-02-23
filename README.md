@@ -34,6 +34,7 @@ This document describes how to validate the Qualcomm NPU-enabled ONNX Runtime co
 Clone the project:
 ```
 git clone https://github.com/Advantech-EdgeSync-Containers/onnxruntime-on-Qualcomm-Hexagon-QCS6490.git
+cd onnxruntime-on-Qualcomm-Hexagon-QCS6490-main
 ```
 
 Start container:
@@ -149,5 +150,6 @@ python test.py
 ```
 
 If `QNNExecutionProvider` appears in the output, it confirms that the QNN Execution Provider is successfully enabled and the container can access the Hexagon 770.
+
 
 This workflow enables rapid development and testing while keeping the runtime environment isolated within the container.
