@@ -25,7 +25,7 @@ This document describes how to validate the Qualcomm NPU-enabled ONNX Runtime co
 | Component          | Version | Description                                                        |
 | ------------------ | ------- | ------------------------------------------------------------------ |
 | Python             | 3.10    | Runtime environment                                                |
-| ONNX Runtime (QNN) | 1.23.2  | Custom build with QNN Execution Provider (Built with QAIRT 2.43.0) |
+| ONNX Runtime (QNN) | 1.24.1  | Custom build with QNN Execution Provider (Built with QAIRT 2.43.0) |
 | QAIRT (QNN SDK)    | 2.43.0  | Qualcomm AI Runtime backend                                        |
 
 **Note**: The custom build of `onnxruntime-qnn` currently only works within this container environment.
@@ -156,5 +156,6 @@ python test.py
 ```
 
 If `QNNExecutionProvider` appears in the output, it confirms that the QNN Execution Provider is successfully enabled and the container can access the Hexagon 770.
+
 
 This workflow enables rapid development and testing while keeping the runtime environment isolated within the container.
