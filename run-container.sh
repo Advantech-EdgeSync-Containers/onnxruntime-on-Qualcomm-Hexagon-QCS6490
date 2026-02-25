@@ -1,4 +1,5 @@
 # 1. Start the container in the background
+docker-compose pull
 docker-compose up -d
 
 echo "Connecting to container..."
